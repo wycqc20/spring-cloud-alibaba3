@@ -1,0 +1,30 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: spring-cloud-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #配置Nacos地址
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 开启从注册中心动态创建路由的功能，利用微服务名称进行路由
+      routes:
+        - id: user_route1 # 路由的id,没有规定规则但要求唯一,建议配合服务名
+          #匹配后提供服务的路由地址 #p70-1:40没法隐藏真实路由？
+          uri: http://localhost:9001
+          # uri: lb://user-provider
+          predicates:
+            - Path=/user/nacos/** # 断言，路径相匹配的进行路由
+
+        - id: user_route2
+          #uri: http://localhost:8001
+          uri: lb://user-provider
+          predicates:
+            - Path=/user2/nacos/** #断言,路径相匹配的进行路由
+            - After=2025-06-04T10:50:21.691+08:00[Asia/Shanghai] # 在指定日期后，才能访问功能
+            - Cookie=jk3,esxy333   #带Cookie，并且jk3的值为esxy333
+            - Header=X-Request-Id,\d+ #请求头要有 X-Request-Id属性并且值为整数的正则表达式

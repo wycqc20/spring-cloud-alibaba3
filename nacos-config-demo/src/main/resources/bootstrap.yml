@@ -1,0 +1,15 @@
+server:
+  port: 8000 # 0~65535 ,0~1023 已经给用了
+
+spring:
+  application:
+    name: nacos-config-demo
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #配置Nacos地址
+      config:
+        server-addr: localhost:8848 #Nacos作为配置中心地址
+        file-extension: yaml #指定yaml格式配置
+        group: DEFAULT_GROUP
+        namespace: b916c04a-9eaa-47f7-bc56-074e9b6ff0ac

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring-cloud-gateway" />
+        <module name="user-provider" />
+        <module name="user-provider2" />
+        <module name="nacos-config-demo" />
+        <module name="user-consumer" />
+        <module name="sentinel-demo" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="user-provider (1)" target="1.8" />
+      <module name="user-provider (2)" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

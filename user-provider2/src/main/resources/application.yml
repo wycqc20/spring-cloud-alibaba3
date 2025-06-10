@@ -1,0 +1,47 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: user-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #配置Nacos注册中心的地址
+  datasource: #数据源的配置
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false
+    username: root
+    password: root
+    druid:
+      initial-size: 10
+      min-idle: 5
+      max-active: 20
+      test-on-borrow: true
+      stat-view-servlet:
+        allow: true
+        #初始化连接数  spring.datasource.druid.initial-size=1
+        #最小空闲连接  spring.datasource.druid.min-idle=1
+        #最大活动连接 spring.datasource.druid.max-active=20
+        #获取连接时测试是否可用 spring.datasource.druid.test-on-borrow=true
+        #监控页面启动 spring.datasource.druid.stat-view-servlet.allow=true
+        # 数据库访问配置, 使用druid数据源
+
+mybatis-plus:
+  type-aliases-package: com.esxy.jk3.pojo
+  mapper-locations: classpath:mappers/*.xml
+
+logging:
+  level:
+    com.esxy.jk3: debug
+
+page:
+  size: 5
+
+#激活所有的端点的web方式请求
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
