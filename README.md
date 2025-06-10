@@ -94,9 +94,3 @@ mvn -pl spring-cloud-gateway spring-boot:run
 - 确保 Nacos 和 Sentinel Dashboard 服务已经启动，并且地址配置正确。
 - 数据库连接信息（如用户名、密码、数据库名等）需要根据实际情况进行修改。
 - 项目中的部分依赖版本可能需要根据实际情况进行调整。
-
-## 贡献
-欢迎贡献代码和提出建议！如果你有任何问题或建议，请在 GitHub 上提交 issue 或 pull request。
-
-## 许可证
-本项目采用 [MIT 许可证](LICENSE)。
